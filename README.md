@@ -28,12 +28,12 @@ trabalho-dev-api/
 │ └─ IMGTDA.png # Imagem do Repositório
 │
 ├─ src/
-│ ├─ controllers/ # Controladores (HTTP layer)
 │ ├─ business/ # Regras de negócio
+│ ├─ controllers/ # Controladores (HTTP layer)
 │ ├─ data/ # "Banco de dados" em memória
 │ ├─ routes/ # Rotas da API
 │ ├─ types/ # Tipos e interfaces TypeScript
-│ ├─ db/ # Exporta arrays users e posts
+│ ├─ db.ts # Exporta arrays users e posts
 │ └─ server.ts # Arquivo principal do servidor
 │
 ├─ .gitignore
