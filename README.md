@@ -1,6 +1,6 @@
 # Trabalho Dev API
 
-![Logo do Projeto](img/IMGTDA.png)
+![Logo do Projeto](img\IMGTDA.png)
 
 ## Descrição do Projeto
 
