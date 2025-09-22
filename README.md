@@ -79,6 +79,8 @@ O projeto contém os seguintes exercícios/funcionalidades:
 
 Você pode usar o Postman, Insomnia ou qualquer cliente HTTP para testar os endpoints.
 
+[Pasta no Postman](https://arthursteinerr-4295979.postman.co/workspace/Arthur-Steiner's-Workspace~3abe7c33-dc8c-47a6-8e21-6f6a7a03e4fe/folder/47732566-1285ca89-1a42-47a7-aa77-f5bd79531bd7?action=share&creator=47732566&ctx=documentation)
+
 Exemplos:
 
 GET /users/1
