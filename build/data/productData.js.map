@@ -1,0 +1,1 @@
+{"version":3,"file":"productData.js","sourceRoot":"","sources":["../../src/data/productData.ts"],"names":[],"mappings":";AAAA,6BAA6B;;;AAE7B,iEAA6D;AAEtD,MAAM,WAAW,GAAG,GAAG,EAAE,CAAC,IAAA,wBAAM,GAAE,CAAC;AAA7B,QAAA,WAAW,eAAkB;AACnC,MAAM,UAAU,GAAG,CAAC,IAAY,EAAE,KAAa,EAAE,EAAE,CAAC,IAAA,wBAAM,EAAC,IAAI,EAAE,KAAK,CAAC,CAAC;AAAlE,QAAA,UAAU,cAAwD"}
