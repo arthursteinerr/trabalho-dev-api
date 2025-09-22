@@ -33,17 +33,13 @@ export const getUsersByAgeRange = (req: Request, res: Response) => {
 
   if (isNaN(minAge) || isNaN(maxAge)) {
     return res.status(400).json({
-      success: false,
       message: "Parâmetros inválidos. Use números para min e max.",
     });
   }
 
   const filteredUsers = getUsersByAgeRangeBusiness(minAge, maxAge);
 
-  return res.status(200).json({
-    success: true,
-    data: filteredUsers,
-  });
+  return res.status(200).json(filteredUsers);
 };
 
 //Exercício 4
