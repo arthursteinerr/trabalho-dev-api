@@ -1,11 +1,14 @@
 //Arthur Steiner Morais Silva
 
 import { Post } from "../types/postTypes";
-import { posts } from "../types/postTypes";
-import { getNextPostId } from "../types/postTypes";
-import { users } from "../data/dataUsers";
+import { users } from "../db";
+import { addPost } from "../data/postData";
+import { findPostById } from "../data/postData";
+import { updatePost } from "../data/postData";
+import { removePost } from "../data/postData";
+import { getNextPostId } from "../data/postData";
 
-// Função para validar o título e conteúdo
+//Função para validar o título, conteúdo e autor
 const validatePostData = (title: string, content: string, authorId: number) => {
   if (!title || title.length < 3) {
     return { success: false, message: "O título precisa ter pelo menos 3 caracteres." };
@@ -25,7 +28,7 @@ const validatePostData = (title: string, content: string, authorId: number) => {
 //Exercicio 3
 export const createPostBusiness = (data: { title: string; content: string; authorId: number }): { success: boolean; message?: string; data?: Post } => {
   const { title, content, authorId } = data;
-  
+
   const validation = validatePostData(title, content, authorId);
   if (!validation.success) return validation;
 
@@ -38,14 +41,13 @@ export const createPostBusiness = (data: { title: string; content: string; autho
     published: false,
   };
 
-  posts.push(newPost);
+  addPost(newPost);  // Chamando a função da camada Data para adicionar o post
   return { success: true, data: newPost };
 };
 
 //Exercicio 5
 export const updatePostPatchBusiness = (postId: number, updates: Partial<Pick<Post, "title" | "content" | "published">>): { success: boolean; message?: string; data?: Post } => {
- const post = posts.find((p) => p.id === postId);
- 
+  const post = findPostById(postId);
   if (!post) {
     return { success: false, message: "Post não encontrado!" };
   }
@@ -68,6 +70,7 @@ export const updatePostPatchBusiness = (postId: number, updates: Partial<Pick<Po
     post.published = updates.published;
   }
 
+  updatePost(postId, post);  // Chamando a função da camada Data para atualizar o post
   return { success: true, data: post };
 };
 
@@ -78,7 +81,7 @@ export const deletePostBusiness = (postId: number, userId: number): { success: b
     return { success: false, message: "Usuário não encontrado" };
   }
 
-  const post = posts.find((p) => p.id === postId);
+  const post = findPostById(postId);
   if (!post) {
     return { success: false, message: "Post não encontrado" };
   }
@@ -87,6 +90,6 @@ export const deletePostBusiness = (postId: number, userId: number): { success: b
     return { success: false, message: "Você não tem permissão para deletar este post" };
   }
 
-  posts.splice(posts.indexOf(post), 1);
+  removePost(postId);  // Chamando a função da camada Data para remover o post
   return { success: true, message: "Post removido com sucesso" };
 };

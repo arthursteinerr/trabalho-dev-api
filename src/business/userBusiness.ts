@@ -1,6 +1,6 @@
 //Arthur Steiner Morais Silva
 
-import { users } from "../data/dataUsers";
+import { users } from "../db"; 
 import { posts } from "../types/postTypes";
 import { User } from "../types/userTypes";
 
@@ -24,7 +24,7 @@ export const getUsersByAgeRangeBusiness = (minAge: number, maxAge: number) => {
   return { success: true, data: filteredUsers };
 };
 
-//Exercicio 
+//Exercicio 4
 export const updateUserPutBusiness = (id: number, data: Omit<User, "id">) => {
   if (!data.name || !data.email || !data.role || data.age === undefined) {
     return { success: false, message: "Todos os campos (name, email, role, age) são obrigatórios." };
