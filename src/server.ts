@@ -1,6 +1,6 @@
 //Arthur Steiner Morais Silva
 
-import app from "./db";
+import app from "./app";
 
 const PORT = 3000;
 

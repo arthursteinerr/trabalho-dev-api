@@ -1,11 +1,10 @@
 //Arthur Steiner Morais Silva
 
 import { Request, Response } from "express";
-import { users } from "../data/dataUsers"; 
-import { posts } from "../types/postTypes";
 import { getUserByIdBusiness } from "../business/userBusiness";
 import { getUsersByAgeRangeBusiness } from "../business/userBusiness";
 import { updateUserPutBusiness } from "../business/userBusiness";
+import { cleanupInactiveUsersBusiness } from "../business/userBusiness";
 
 //Exercício 1
 export const getUserById = (req: Request, res: Response) => {
@@ -15,13 +14,13 @@ export const getUserById = (req: Request, res: Response) => {
     return res.status(400).json({ message: "ID inválido" });
   }
 
-  const user = getUserByIdBusiness(userId);
+  const result = getUserByIdBusiness(userId);
 
-  if (!user) {
-    return res.status(404).json({ message: "Usuário não encontrado" });
+  if (!result.success) {
+    return res.status(404).json({ message: result.message });
   }
 
-  return res.status(200).json(user);
+  return res.status(200).json(result);
 };
 
 //Exercício 2
@@ -37,9 +36,13 @@ export const getUsersByAgeRange = (req: Request, res: Response) => {
     });
   }
 
-  const filteredUsers = getUsersByAgeRangeBusiness(minAge, maxAge);
+  const result = getUsersByAgeRangeBusiness(minAge, maxAge);
 
-  return res.status(200).json(filteredUsers);
+  if (!result.success) {
+    return res.status(404).json({ message: result.message });
+  }
+
+  return res.status(200).json(result);
 };
 
 //Exercício 4
@@ -53,9 +56,7 @@ export const updateUserPut = (req: Request, res: Response) => {
     return res.status(400).json({ success: false, message: result.message });
   }
 
-  if (result.success) {
-    return res.status(200).json({ success: true, data: result.data });
-  }
+  return res.status(200).json({ success: true, data: result.data });
 };
 
 //Exercício 7
@@ -66,16 +67,7 @@ export const cleanupInactiveUsers = (req: Request, res: Response) => {
     return res.status(400).json({ message: "Parâmetro 'confirm=true' é obrigatório" });
   }
 
-  const removedUsers = users.filter((u) =>
-    u.role !== "admin" && !posts.some((p) => p.authorId === u.id)
-  );
-
-  removedUsers.forEach((removedUser) => {
-    const idx = users.findIndex((u) => u.id === removedUser.id);
-    if (idx !== -1) {
-      users.splice(idx, 1);
-    }
-  });
+  const removedUsers = cleanupInactiveUsersBusiness();
 
   return res.status(200).json(removedUsers);
 };

@@ -1,13 +1,17 @@
 //Arthur Steiner Morais Silva
 
-import express from "express";
-import userRoutes from "./routes/userRoutes";
-import postRoutes from "./routes/postRoutes";
+import { User } from "./types/userTypes";
+import { Post } from "./types/postTypes";
 
-const app = express();
-app.use(express.json());
+export const users: User[] = [
+  { id: 1, name: "Arthur", email: "arthur@gmail.com", role: "admin", age: 20 },
+  { id: 2, name: "Thiago", email: "thiago@gmail.com", role: "user", age: 35 },
+  { id: 3, name: "Thais", email: "thais@gmail.com", role: "user", age: 19 },
+  { id: 4, name: "Flavio", email: "flavio@gmail.com", role: "user", age: 34 },
+];
 
-app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
-
-export default app;
+// Simulação de um banco de dados de posts
+export const posts: Post[] = [
+  { id: 1, title: "Post 1", content: "Conteúdo do post 1", authorId: 1, createdAt: new Date(), published: false },
+  { id: 2, title: "Post 2", content: "Conteúdo do post 2", authorId: 2, createdAt: new Date(), published: false },
+];
