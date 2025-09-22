@@ -4,42 +4,51 @@
 
 ## Descrição do Projeto
 
-Este projeto é um material didático para aprender desenvolvimento de **APIs REST** com **Node.js**, **TypeScript** e **Express**, utilizando o padrão **MVC**. Ele foi estruturado como uma progressão do básico ao intermediário, com exercícios práticos para consolidar o aprendizado.
+Este projeto serve como material didático para aprender o desenvolvimento de **APIs REST** utilizando **Node.js**, **TypeScript** e **Express**. A aplicação segue o padrão **MVC (Model-View-Controller)**, garantindo uma arquitetura escalável e bem estruturada.
 
-O objetivo é fornecer uma base sólida para criação, leitura, atualização e exclusão de dados (`CRUD`) em APIs, além de trabalhar com boas práticas, validação de dados e tipagem forte do TypeScript.
+Através de uma abordagem prática, o repositório oferece exercícios que cobrem as operações básicas de um sistema de **CRUD** (Criar, Ler, Atualizar, Deletar) e também se preocupa com boas práticas como validação de dados, tipagem forte e organização de código.
+
+O foco principal é **consolidar o aprendizado** do desenvolvimento de APIs com as tecnologias mencionadas, ajudando a entender conceitos importantes, como:
+
+- Estruturação de projetos com TypeScript.
+- Boas práticas em APIs REST.
+- Gerenciamento de dados (em memória, neste caso).
+- Validação de dados e controle de permissões de usuários.
 
 ---
 
 ## Tecnologias Utilizadas
 
-- [Node.js](https://nodejs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Express](https://expressjs.com/)
-- Git e GitHub (controle de versão)
+- **[Node.js](https://nodejs.org/)**: Ambiente de execução JavaScript no lado do servidor.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática e outras funcionalidades.
+- **[Express](https://expressjs.com/)**: Framework minimalista para construção de APIs e servidores HTTP.
+- **Git** e **GitHub**: Controle de versão e colaboração em equipe.
 
 ---
 
 ## Estrutura do Projeto
 
+A estrutura do projeto foi organizada de maneira a separar as responsabilidades e facilitar a manutenção e escalabilidade:
+
 ```bash
 trabalho-dev-api/
 │
 ├─ img/
-│ └─ IMGTDA.png # Imagem do Repositório
+│ └─ IMGTDA.png           # Imagem do Repositório (para estilização e branding)
 │
-├─ src/
-│ ├─ business/ # Regras de negócio
-│ ├─ controllers/ # Controladores (HTTP layer)
-│ ├─ data/ # "Banco de dados" em memória
-│ ├─ routes/ # Rotas da API
-│ ├─ types/ # Tipos e interfaces TypeScript
-│ ├─ db.ts # Exporta arrays users e posts
-│ └─ server.ts # Arquivo principal do servidor
+├─ src/                    # Código-fonte do aplicativo
+│ ├─ business/             # Regras de negócio (lógica de processamento da aplicação)
+│ ├─ controllers/          # Controladores (camada de controle da API, lida com requisições HTTP)
+│ ├─ data/                 # "Banco de dados" em memória (simula persistência de dados)
+│ ├─ routes/               # Definição das rotas da API
+│ ├─ types/                # Tipos e interfaces TypeScript (tipagem forte)
+│ ├─ db.ts                 # Arquivo principal (simula a persistência dos dados e exporta os dados dos usuários e posts)
+│ └─ server.ts             # Arquivo que inicializa o servidor Express e configura o servidor da API
 │
-├─ .gitignore
-├─ package.json
-├─ tsconfig.json
-└─ README.md
+├─ .gitignore              # Arquivo que ignora arquivos desnecessários no repositório
+├─ package.json            # Gerenciador de dependências e scripts do projeto
+├─ tsconfig.json           # Configuração do TypeScript
+└─ README.md               # Documentação do projeto (este arquivo)
 ```
 
 ---
@@ -86,128 +95,147 @@ Você pode usar o Postman, Insomnia ou qualquer cliente HTTP para testar os endp
 
 [Pasta no Postman](https://arthursteinerr-4295979.postman.co/workspace/Arthur-Steiner's-Workspace~3abe7c33-dc8c-47a6-8e21-6f6a7a03e4fe/folder/47732566-1285ca89-1a42-47a7-aa77-f5bd79531bd7?action=share&creator=47732566&ctx=documentation)
 
-Exemplos:
-
-GET /users/1
-
-```
-{
-    "success": true,
-    "data": {
+### Exercício 1: `GET /users/:id`
+- **Resposta de Sucesso**:
+    ```json
+    {
+      "success": true,
+      "data": {
         "id": 1,
         "name": "Arthur",
         "email": "arthur@gmail.com",
         "role": "admin",
         "age": 20
+      }
     }
-}
-```
+    ```
+- **Erro (404)**: Se o usuário não for encontrado.
 
-GET /users/age-range?min=25&max=35
+---
 
-```
-{
-        "success": true,
-        "data": [
-            {
-                "id": 2,
-                "name": "Thiago",
-                "email": "thiago@gmail.com",
-                "role": "user",
-                "age": 35
-            },
-            {
-                "id": 4,
-                "name": "Flavio",
-                "email": "flavio@gmail.com",
-                "role": "user",
-                "age": 34
-            }
-        ]
+### Exercício 2: `GET /users/age-range?min=25&max=35`
+- **Validação**: Parâmetros `min` e `max` devem ser números válidos.
+- **Resposta de Sucesso**:
+    ```json
+    {
+      "success": true,
+      "data": [
+        {
+          "id": 2,
+          "name": "Thiago",
+          "email": "thiago@gmail.com",
+          "role": "user",
+          "age": 35
+        },
+        {
+          "id": 4,
+          "name": "Flavio",
+          "email": "flavio@gmail.com",
+          "role": "user",
+          "age": 34
+        }
+      ]
     }
-}
-```
+    ```
 
-POST /posts com body JSON:
+---
 
-```
-{
-    "success": true,
-    "data": {
+### Exercício 3: `POST /posts`
+- **Validação**: O título deve ter no mínimo 3 caracteres, o conteúdo, 10 caracteres, e o `authorId` deve corresponder a um usuário válido.
+- **Resposta de Sucesso**:
+    ```json
+    {
+      "success": true,
+      "data": {
         "id": 1,
         "title": "Meu Terceiro Post",
         "content": "Conteúdo válido com mais de 10 caracteres",
         "authorId": 1,
         "createdAt": "2025-09-22T14:59:09.574Z",
         "published": false
+      }
     }
-}
-```
+    ```
 
-PUT /users/1 com body JSON:
+---
 
-```
-{
-    "success": true,
-    "data": {
+### Exercício 4: `PUT /users/:id`
+- **Validação**: Todos os campos são obrigatórios e a atualização verifica possíveis conflitos no email.
+- **Resposta de Sucesso**:
+    ```json
+    {
+      "success": true,
+      "data": {
         "id": 1,
         "name": "Arthur Steiner",
         "email": "arthur@teste.com",
         "role": "admin",
         "age": 30
+      }
     }
-}
-```
+    ```
 
-PATCH /posts/1 com body JSON:
+---
 
-```
-{
-    "id": 1,
-    "title": "Título Atualizado",
-    "content": "Conteúdo válido com mais de 10 caracteres",
-    "authorId": 1,
-    "createdAt": "2025-09-22T14:59:09.574Z",
-    "published": false
-}
-```
-
-DELETE /posts/1 com header User-Id: 1
-
-```
-{
-    "message": "Post removido com sucesso"
-}
-```
-
-DELETE /users/cleanup-inactive?confirm=true
-
-```
-[
+### Exercício 5: `PATCH /posts/:id`
+- **Permite** atualizar o `title`, `content` ou `published`.
+- **Resposta de Sucesso**:
+    ```json
     {
+      "id": 1,
+      "title": "Título Atualizado",
+      "content": "Conteúdo válido com mais de 10 caracteres",
+      "authorId": 1,
+      "createdAt": "2025-09-22T14:59:09.574Z",
+      "published": false
+    }
+    ```
+
+---
+
+### Exercício 6: `DELETE /posts/:id`
+- **Requisito**: Deve passar o `User-Id` no header para verificar permissões.
+- **Resposta de Sucesso**:
+    ```json
+    {
+      "message": "Post removido com sucesso"
+    }
+    ```
+
+---
+
+### Exercício 7: `DELETE /users/cleanup-inactive?confirm=true`
+- **Restrições**: Administradores não são removidos.
+- **Resposta de Sucesso**:
+    ```json
+    [
+      {
         "id": 2,
         "name": "Thiago",
         "email": "thiago@gmail.com",
         "role": "user",
         "age": 35
-    },
-    {
+      },
+      {
         "id": 3,
         "name": "Thais",
         "email": "thais@gmail.com",
         "role": "user",
         "age": 19
-    },
-    {
-        "id": 4,
-        "name": "Flavio",
-        "email": "flavio@gmail.com",
-        "role": "user",
-        "age": 34
-    }
-]
-```
+      }
+    ]
+    ```
+## Autor e Créditos
 
-## Autor
+**Arthur Steiner Morais Silva**  
+Estudante de Análise e Desenvolvimento de Sistemas - FAMINAS (Muriaé)  
+GitHub: [@arthursteinerr](https://github.com/arthursteinerr)
+
+---
+
+Este projeto foi desenvolvido como parte do **Trabalho Acadêmico** para a disciplina de **Desenvolvimento de APIs** da **FAMINAS**. 
+
+---
+
 
 Arthur Steiner Morais Silva
