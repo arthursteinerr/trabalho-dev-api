@@ -24,6 +24,9 @@ O objetivo é fornecer uma base sólida para criação, leitura, atualização e
 ```bash
 trabalho-dev-api/
 │
+├─ img/
+│ └─ IMGTDA.png # Imagem do Repositório
+│
 ├─ src/
 │ ├─ controllers/ # Controladores (HTTP layer)
 │ ├─ business/ # Regras de negócio
