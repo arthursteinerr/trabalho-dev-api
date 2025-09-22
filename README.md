@@ -1,5 +1,7 @@
 # Trabalho Dev API
 
+![Logo do Projeto](img/IMGTDA.png)
+
 ## Descrição do Projeto
 
 Este projeto é um material didático para aprender desenvolvimento de **APIs REST** com **Node.js**, **TypeScript** e **Express**, utilizando o padrão **MVC**. Ele foi estruturado como uma progressão do básico ao intermediário, com exercícios práticos para consolidar o aprendizado.
