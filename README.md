@@ -4,11 +4,11 @@
 
 ## Descrição do Projeto
 
-Este projeto serve como material didático para aprender o desenvolvimento de **APIs REST** utilizando **Node.js**, **TypeScript** e **Express**. A aplicação segue o padrão **MVC (Model-View-Controller)**, garantindo uma arquitetura escalável e bem estruturada.
+A aplicação segue o padrão **MVC (Model-View-Controller)**, garantindo uma arquitetura escalável e bem estruturada.
 
-Através de uma abordagem prática, o repositório oferece exercícios que cobrem as operações básicas de um sistema de **CRUD** (Criar, Ler, Atualizar, Deletar) e também se preocupa com boas práticas como validação de dados, tipagem forte e organização de código.
+Através de uma abordagem prática, o repositório oferece a resolução de exercícios que cobrem as operações básicas de um sistema de **CRUD** (Criar, Ler, Atualizar, Deletar) e também se preocupa com boas práticas como validação de dados, tipagem forte e organização de código.
 
-O foco principal é **consolidar o aprendizado** do desenvolvimento de APIs com as tecnologias mencionadas, ajudando a entender conceitos importantes, como:
+O foco principal desse projeto foi **consolidar o aprendizado** do desenvolvimento de APIs com as tecnologias mencionadas, ajudando a entender conceitos importantes, como:
 
 - Estruturação de projetos com TypeScript.
 - Boas práticas em APIs REST.
