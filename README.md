@@ -100,8 +100,6 @@ GET /users/age-range?min=25&max=35
 
 ```
 {
-    "success": true,
-    "data": {
         "success": true,
         "data": [
             {
