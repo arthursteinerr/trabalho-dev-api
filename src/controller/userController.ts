@@ -50,17 +50,11 @@ export const updateUserPut = (req: Request, res: Response) => {
   const result = updateUserPutBusiness(userId, { name, email, role, age });
 
   if (!result.success) {
-    return res.status(400).json({
-      success: false,
-      message: result.message,
-    });
+    return res.status(400).json({ success: false, message: result.message });
   }
 
   if (result.success) {
-    return res.status(200).json({
-      success: true,
-      data: result.data,
-    });
+    return res.status(200).json({ success: true, data: result.data });
   }
 };
 

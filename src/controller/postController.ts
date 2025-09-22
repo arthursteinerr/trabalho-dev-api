@@ -12,17 +12,11 @@ export const createPost = (req: Request, res: Response) => {
   const result = createPostBusiness({ title, content, authorId });
 
   if (!result.success) {
-    return res.status(400).json({
-      success: false,
-      message: result.message,
-    });
+    return res.status(400).json({ success: false, message: result.message });
   }
 
   if (result.success) {
-    return res.status(201).json({
-      success: true,
-      data: result.data,
-    });
+    return res.status(201).json({ success: true, data: result.data });
   }
 };
 
