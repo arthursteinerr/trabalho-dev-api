@@ -33,22 +33,21 @@ A estrutura do projeto foi organizada de maneira a separar as responsabilidades 
 ```bash
 trabalho-dev-api/
 │
-├─ img/
-│ └─ IMGTDA.png           # Imagem do Repositório (para estilização e branding)
+├─ img/                   # Imagem para branding e estilização do projeto
 │
-├─ src/                    # Código-fonte do aplicativo
-│ ├─ business/             # Regras de negócio (lógica de processamento da aplicação)
-│ ├─ controllers/          # Controladores (camada de controle da API, lida com requisições HTTP)
-│ ├─ data/                 # "Banco de dados" em memória (simula persistência de dados)
-│ ├─ routes/               # Definição das rotas da API
-│ ├─ types/                # Tipos e interfaces TypeScript (tipagem forte)
-│ ├─ db.ts                 # Arquivo principal (simula a persistência dos dados e exporta os dados dos usuários e posts)
-│ └─ server.ts             # Arquivo que inicializa o servidor Express e configura o servidor da API
+├─ src/                   # Código-fonte da aplicação
+│ ├─ business/            # Regras e lógica de negócio da aplicação
+│ ├─ controllers/         # Lida com requisições HTTP e respostas
+│ ├─ data/                # Acesso e manipulação dos dados (simulação do DB)
+│ ├─ routes/              # Definição dos endpoints da API
+│ ├─ types/               # Tipos e interfaces TypeScript para tipagem forte
+│ ├─ db.ts                # Simulação do banco de dados (dados em memória)
+│ └─ server.ts            # Inicializa e configura o servidor Express
 │
-├─ .gitignore              # Arquivo que ignora arquivos desnecessários no repositório
-├─ package.json            # Gerenciador de dependências e scripts do projeto
-├─ tsconfig.json           # Configuração do TypeScript
-└─ README.md               # Documentação do projeto (este arquivo)
+├─ .gitignore             # Arquivos e pastas ignoradas pelo Git
+├─ package.json           # Gerenciador de dependências e scripts do projeto
+├─ tsconfig.json          # Configurações do compilador TypeScript
+└─ README.md              # Documentação do projeto
 ```
 
 ---
