@@ -31,9 +31,7 @@ export const getUsersByAgeRange = (req: Request, res: Response) => {
   const maxAge = parseInt(max as string, 10);
 
   if (isNaN(minAge) || isNaN(maxAge)) {
-    return res.status(400).json({
-      message: "Parâmetros inválidos. Use números para min e max.",
-    });
+    return res.status(400).json({ message: "Parâmetros inválidos. Adicione um valor número válido." });
   }
 
   const result = getUsersByAgeRangeBusiness(minAge, maxAge);

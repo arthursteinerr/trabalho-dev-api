@@ -11,7 +11,7 @@ export const createPost = (req: Request, res: Response) => {
   const { title, content } = req.body;
 
   if (!authorId || isNaN(authorId)) {
-    return res.status(400).json({ message: "Header 'User-Id' é obrigatório e deve ser um número válido." });
+    return res.status(400).json({ message: "Adicione um valor no Header 'User-Id', é obrigatório e ele deve ser um número válido." });
   }
 
   const result = createPostBusiness({ title, content, authorId });
@@ -33,7 +33,7 @@ export const updatePostPatch = (req: Request, res: Response) => {
   const { title, content, published, id, authorId, createdAt } = req.body;
 
   if (id || authorId || createdAt) {
-    return res.status(400).json({ message: "Não é permitido alterar id, authorId ou createdAt" });
+    return res.status(400).json({ message: "Não é permitido alterar id." });
   }
 
   const result = updatePostPatchBusiness(postId, { title, content, published });
@@ -51,7 +51,7 @@ export const deletePost = (req: Request, res: Response) => {
   const userId = parseInt(req.header("User-Id") ?? "", 10);
 
   if (!userId || isNaN(userId)) {
-    return res.status(400).json({ message: "Header 'User-Id' é obrigatório e deve ser um número" });
+    return res.status(400).json({ message: "Adicione um valor no Header 'User-Id', é obrigatório e ele deve ser um número válido." });
   }
 
   const result = deletePostBusiness(postId, userId);

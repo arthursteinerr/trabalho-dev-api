@@ -13,7 +13,10 @@ export const getUsersByAgeRange = (minAge: number, maxAge: number): User[] => {
 
 export const updateUser = (id: number, data: Omit<User, "id">): User | undefined => {
   const index = users.findIndex(user => user.id === id);
-  if (index === -1) return undefined;
+
+  if (index === -1) {
+    return undefined;
+  }
 
   users[index] = { id, ...data };
   return users[index];
@@ -21,7 +24,9 @@ export const updateUser = (id: number, data: Omit<User, "id">): User | undefined
 
 export const removeUser = (id: number): boolean => {
   const index = users.findIndex(user => user.id === id);
-  if (index === -1) return false;
+  if (index === -1) {
+    return false;
+  }
 
   users.splice(index, 1);
   return true;

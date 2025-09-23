@@ -18,7 +18,7 @@ export const getUserByIdBusiness = (id: number) => {
 export const getUsersByAgeRangeBusiness = (minAge: number, maxAge: number) => {
   const filteredUsers = users.filter((user) => user.age >= minAge && user.age <= maxAge);
   if (filteredUsers.length === 0) {
-    return { success: false, message: "Nenhum usuário encontrado dentro da faixa etária." };
+    return { success: false, message: "Nenhum usuário encontrado dentro dessa faixa etária." };
   }
 
   return { success: true, data: filteredUsers };
@@ -27,7 +27,7 @@ export const getUsersByAgeRangeBusiness = (minAge: number, maxAge: number) => {
 //Exercicio 4
 export const updateUserPutBusiness = (id: number, data: Omit<User, "id">) => {
   if (!data.name || !data.email || !data.role || data.age === undefined) {
-    return { success: false, message: "Todos os campos (name, email, role, age) são obrigatórios." };
+    return { success: false, message: "Todos os campos são obrigatórios!" };
   }
 
   if (users.some((user) => user.email === data.email && user.id !== id)) {

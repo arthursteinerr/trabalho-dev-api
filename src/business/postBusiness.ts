@@ -41,7 +41,7 @@ export const createPostBusiness = (data: { title: string; content: string; autho
     published: false,
   };
 
-  addPost(newPost);  // Chamando a função da camada Data para adicionar o post
+  addPost(newPost);  
   return { success: true, data: newPost };
 };
 
@@ -70,7 +70,7 @@ export const updatePostPatchBusiness = (postId: number, updates: Partial<Pick<Po
     post.published = updates.published;
   }
 
-  updatePost(postId, post);  // Chamando a função da camada Data para atualizar o post
+  updatePost(postId, post); 
   return { success: true, data: post };
 };
 
@@ -90,6 +90,6 @@ export const deletePostBusiness = (postId: number, userId: number): { success: b
     return { success: false, message: "Você não tem permissão para deletar este post" };
   }
 
-  removePost(postId);  // Chamando a função da camada Data para remover o post
+  removePost(postId); 
   return { success: true, message: "Post removido com sucesso" };
 };
