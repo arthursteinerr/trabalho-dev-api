@@ -1,6 +1,6 @@
 # Trabalho Dev API
 
-![Logo do Projeto](img/IMGTDA.png)
+![Logo do Projeto](src/img/IMGTDA.png)
 
 ## Descrição do Projeto
 
@@ -33,22 +33,44 @@ A estrutura do projeto foi organizada de maneira a separar as responsabilidades 
 ```bash
 trabalho-dev-api/
 │
-├─ img/
-│ └─ IMGTDA.png           # Imagem do Repositório (para estilização e branding)
 │
-├─ src/                    # Código-fonte do aplicativo
-│ ├─ business/             # Regras de negócio (lógica de processamento da aplicação)
-│ ├─ controllers/          # Controladores (camada de controle da API, lida com requisições HTTP)
-│ ├─ data/                 # "Banco de dados" em memória (simula persistência de dados)
-│ ├─ routes/               # Definição das rotas da API
-│ ├─ types/                # Tipos e interfaces TypeScript (tipagem forte)
-│ ├─ db.ts                 # Arquivo principal (simula a persistência dos dados e exporta os dados dos usuários e posts)
-│ └─ server.ts             # Arquivo que inicializa o servidor Express e configura o servidor da API
+├─ src/                   # Código-fonte da aplicação
+│ ├─ business/            # Service: regras e lógica de negócio da aplicação
+│ │ ├─ userBusiness.ts    # Lógica de negócio relacionada a usuários
+│ │ └─ postBusiness.ts    # Lógica de negócio relacionada a posts
+│ │
+│ ├─ controllers/         # Controller: lida com requisições HTTP e respostas
+│ │ ├─ userController.ts  # Controladores para rotas de usuários
+│ │ └─ postController.ts  # Controladores para rotas de posts
+│ │
+│ ├─ data/                # Repository: acesso e manipulação dos dados (simulação do DB)
+│ │ ├─ userData.ts        # Funções para acessar/manipular dados dos usuários
+│ │ └─ postData.ts        # Funções para acessar/manipular dados dos posts
 │
-├─ .gitignore              # Arquivo que ignora arquivos desnecessários no repositório
-├─ package.json            # Gerenciador de dependências e scripts do projeto
-├─ tsconfig.json           # Configuração do TypeScript
-└─ README.md               # Documentação do projeto (este arquivo)
+│ ├─ img/                 # Imagem para branding e estilização do projeto
+│ └─ IMGTDA.png           # Imagem do Repositório
+│ │
+│ ├─ routes/              # Routes: definição dos endpoints da API
+│ │ ├─ userRoutes.ts      # Rotas relacionadas a usuários
+│ │ └─ postRoutes.ts      # Rotas relacionadas a posts
+│ │
+│ ├─ types/               # Models: tipos e interfaces TypeScript para tipagem forte
+│ │ ├─ userTypes.ts       # Tipos e interfaces para usuários
+│ │ └─ postTypes.ts       # Tipos e interfaces para posts
+│ │
+│ ├─ app.ts               # Configura o Express, middlewares e rotas (novo arquivo)
+│ │
+│ ├─ db.ts                # Simulação do banco de dados (dados em memória)
+│ │                       # Exporta listas de usuários e posts
+│ │
+│ └─ server.ts            # Entry point: inicializa e configura o servidor Express
+│                         # Configura middlewares e rotas principais
+│
+├─ .gitignore             # Arquivos e pastas ignoradas pelo Git
+├─ package.json           # Gerenciador de dependências e scripts do projeto
+├─ tsconfig.json          # Configurações do compilador TypeScript
+└─ README.md              # Documentação do projeto
+
 ```
 
 ---
