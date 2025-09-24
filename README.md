@@ -144,6 +144,30 @@ Você pode usar clientes HTTP como Postman, Thunder Client ou Insomnia.
 
 * [Pasta com os endpoints já configurados no Postman](https://arthursteinerr-4295979.postman.co/workspace/Arthur-Steiner's-Workspace~3abe7c33-dc8c-47a6-8e21-6f6a7a03e4fe/folder/47732566-1285ca89-1a42-47a7-aa77-f5bd79531bd7?action=share&creator=47732566&ctx=documentation)
 
+Para executar a aplicação localmente, siga os passos abaixo:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/arthursteinerr/trabalho-dev-api.git
+   cd trabalho-dev-api
+   ```
+
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor em modo de desenvolvimento:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse a API:**
+   A aplicação estará rodando em `http://localhost:3000`.
+
 ---
 
 ## Exemplos de Requisições e Respostas
@@ -271,7 +295,3 @@ GitHub: [@arthursteinerr](https://github.com/arthursteinerr)
 ---
 
 Este projeto foi desenvolvido para a disciplina de **Desenvolvimento de APIs** da **FAMINAS**, como parte do Trabalho Acadêmico.
-
----
-
-Se quiser, posso ajudar a montar exemplos de requests curl, ou até um Postman Collection para facilitar seus testes! Quer?
