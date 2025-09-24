@@ -288,10 +288,9 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ## Autor e Créditos
 
-**Arthur Steiner**
+**Arthur Steiner,**
 Estudante de Análise e Desenvolvimento de Sistemas — FAMINAS Muriaé
-GitHub: [@arthursteinerr](https://github.com/arthursteinerr)
 
----
+GitHub: [@arthursteinerr](https://github.com/arthursteinerr)
 
 Este projeto foi desenvolvido para a disciplina de **Desenvolvimento de APIs** da **FAMINAS**, como parte do Trabalho Acadêmico.
