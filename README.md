@@ -146,26 +146,33 @@ Você pode usar clientes HTTP como Postman, Thunder Client ou Insomnia.
 
 Para executar a aplicação localmente, siga os passos abaixo:
 
+---
+
 1. **Clone o repositório:**
 
    ```bash
    git clone https://github.com/arthursteinerr/trabalho-dev-api.git
+   ```
+
+2. **Entre na pasta do projeto:**
+
+   ```bash
    cd trabalho-dev-api
    ```
 
-2. **Instale as dependências:**
+3. **Instale as dependências:**
 
    ```bash
    npm install
    ```
 
-3. **Inicie o servidor em modo de desenvolvimento:**
+4. **Inicie o servidor em modo de desenvolvimento:**
 
    ```bash
    npm run dev
    ```
 
-4. **Acesse a API:**
+5. **Acesse a API:**
    A aplicação estará rodando em `http://localhost:3000`.
 
 ---
